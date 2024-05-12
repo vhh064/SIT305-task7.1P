@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/lavender_border"
+            android:gravity="center_horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post type:"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/purple_500"
+                android:layout_marginBottom="6dp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroupType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/radioLost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lost" />
+
+                <RadioButton
+                    android:id="@+id/radioFound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Found"
+                    android:layout_marginStart="16dp"/>
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/editTextItemName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:background="@drawable/edittext_background"
+                android:padding="15dp"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/editTextItemPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone"
+                android:inputType="phone"
+                android:background="@drawable/edittext_background"
+                android:padding="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/editTextItemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                android:inputType="textMultiLine"
+                android:background="@drawable/edittext_background"
+                android:padding="30dp"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/editTextItemDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Date"
+                android:inputType="date"
+                android:background="@drawable/edittext_background"
+                android:padding="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/editTextItemLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Location"
+                android:inputType="text"
+                android:background="@drawable/edittext_background"
+                android:padding="15dp"
+                android:layout_marginTop="10dp"/>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/SaveButton"
+                android:layout_width="248dp"
+                android:layout_height="58dp"
+                android:text="Save"
+                android:layout_gravity="center_horizontal"
+                app:backgroundTint="@color/lavender"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</ScrollView>

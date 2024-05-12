@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Items to Delete"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewDeleteItems"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:listitem="@layout/activity_find_items"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonDeleteSelected"
+        android:layout_width="248dp"
+        android:layout_height="58dp"
+        android:text="Delete Selected"
+        android:layout_gravity="center_horizontal"
+        app:backgroundTint="@color/lavender"
+        android:layout_marginBottom="16dp">
+
+    </com.google.android.material.button.MaterialButton>
+
+
+
+</LinearLayout>
