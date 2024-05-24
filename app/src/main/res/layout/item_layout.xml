@@ -3,35 +3,76 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="@color/lavender"
+    android:elevation="4dp"
+    android:layout_margin="8dp">
 
-    <TextView
-        android:id="@+id/textViewItemTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:fontFamily="sans-serif-medium"
-        android:paddingBottom="4dp"/>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Name: "
+android:textStyle="bold"/>
+<TextView
+android:id="@+id/name"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Name" />
 
-    <TextView
-        android:id="@+id/textViewItemDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:fontFamily="sans-serif"/>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Phone: "
+android:textStyle="bold"/>
+<TextView
+android:id="@+id/phone"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Phone" />
 
-    <TextView
-        android:id="@+id/textViewItemType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif-italic"/>
-    <TextView
-        android:id="@+id/textViewItemDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif-italic"/>
-</LinearLayout>
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Description: "
+android:textStyle="bold"/>
+<TextView
+android:id="@+id/description"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Description" />
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Date: "
+android:textStyle="bold"/>
+<TextView
+android:id="@+id/date"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Date" />
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Location: "
+android:textStyle="bold"/>
+<TextView
+android:id="@+id/location"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Location" />
+
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Type: "
+android:textStyle="bold"/>
+<TextView
+android:id="@+id/type"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Type" />
+    </LinearLayout>
 
 

@@ -24,15 +24,21 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     // ViewHolder class that holds the views for each item
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextView;
+        TextView nameTextView;
+        TextView phoneTextView;
         TextView descriptionTextView;
+        TextView dateTextView;
+        TextView locationTextView;
         TextView typeTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            titleTextView = itemView.findViewById(R.id.textViewItemTitle);
-            descriptionTextView = itemView.findViewById(R.id.textViewItemDescription);
-            typeTextView = itemView.findViewById(R.id.textViewItemType);
+            nameTextView = itemView.findViewById(R.id.name);
+            phoneTextView = itemView.findViewById(R.id.phone);
+            descriptionTextView = itemView.findViewById(R.id.description);
+            dateTextView = itemView.findViewById(R.id.date);
+            locationTextView = itemView.findViewById(R.id.location);
+            typeTextView = itemView.findViewById(R.id.type);
         }
     }
 
@@ -47,16 +53,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Item item = items.get(position);
 
-        holder.titleTextView.setText(item.getTitle());
+        holder.nameTextView.setText(item.getTitle());
+        holder.phoneTextView.setText(item.getPhone());
         holder.descriptionTextView.setText(item.getDescription());
-        if (holder.typeTextView != null) {
-            holder.typeTextView.setText(item.getType());
-        }
+        holder.dateTextView.setText(item.getDate());
+        holder.locationTextView.setText(item.getLocation());
+        holder.typeTextView.setText(item.getType());
 
         // Click listener for item view
         holder.itemView.setOnClickListener(v -> {
             if (!isDeleteMode) {
-                Intent intent = new Intent(context, RemoveITem.class);
+                Intent intent = new Intent(context, RemoveITem.class); // Update the class name if necessary
                 intent.putExtra("item", item);  // Ensure Item implements Serializable
                 context.startActivity(intent);
             } else {

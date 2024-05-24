@@ -42,12 +42,20 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"/>
 
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/ShowAllLostAndFoundItems"
                 android:layout_width="248dp"
                 android:layout_height="58dp"
                 android:text="Show All Lost and Found Items"
+                android:layout_gravity="center_horizontal"
+                app:backgroundTint="@color/lavender"
+                android:layout_marginTop="20dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ShowOnMapButton"
+                android:layout_width="248dp"
+                android:layout_height="58dp"
+                android:text="Show on Map"
                 android:layout_gravity="center_horizontal"
                 app:backgroundTint="@color/lavender"
                 android:layout_marginTop="20dp"/>

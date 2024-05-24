@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "LostAndFound.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2; // Incremented the database version
     private static final String TABLE_ITEMS = "items";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_TITLE = "title";
@@ -20,6 +20,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_DATE = "date";
     private static final String COLUMN_LOCATION = "location";
     private static final String COLUMN_TYPE = "type";
+    private static final String COLUMN_LATITUDE = "latitude";
+    private static final String COLUMN_LONGITUDE = "longitude";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -34,13 +36,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_DESCRIPTION + " TEXT,"
                 + COLUMN_DATE + " TEXT,"
                 + COLUMN_LOCATION + " TEXT,"
-                + COLUMN_TYPE + " TEXT)");
+                + COLUMN_TYPE + " TEXT,"
+                + COLUMN_LATITUDE + " REAL,"
+                + COLUMN_LONGITUDE + " REAL)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ITEMS);
-        onCreate(db);
+        if (oldVersion < 2) {
+            db.execSQL("ALTER TABLE " + TABLE_ITEMS + " ADD COLUMN " + COLUMN_LATITUDE + " REAL;");
+            db.execSQL("ALTER TABLE " + TABLE_ITEMS + " ADD COLUMN " + COLUMN_LONGITUDE + " REAL;");
+        }
     }
 
     public boolean addItem(Item item) {
@@ -52,6 +58,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_DATE, item.getDate());
         values.put(COLUMN_LOCATION, item.getLocation());
         values.put(COLUMN_TYPE, item.getType());
+        values.put(COLUMN_LATITUDE, item.getLatitude());
+        values.put(COLUMN_LONGITUDE, item.getLongitude());
 
         long result = db.insert(TABLE_ITEMS, null, values);
         db.close();
@@ -71,7 +79,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATE)),
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_LOCATION)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TYPE)));
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TYPE)),
+                        cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN_LATITUDE)),
+                        cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN_LONGITUDE))
+                );
                 items.add(item);
             } while (cursor.moveToNext());
         }

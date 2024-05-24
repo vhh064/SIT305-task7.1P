@@ -7,29 +7,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button createNewAdvertButton;
-    private Button showAllLostAndFoundItemsButton;
+    private Button createNewAdvertButton, showAllLostAndFoundItemsButton, showOnMapButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // Ensure this is your main activity layout file name
+        setContentView(R.layout.activity_main);
 
-        // Initialize buttons from the layout
         createNewAdvertButton = findViewById(R.id.CreateNewAdvertbutton);
         showAllLostAndFoundItemsButton = findViewById(R.id.ShowAllLostAndFoundItems);
+        showOnMapButton = findViewById(R.id.ShowOnMapButton);
 
-        // Set up the listener for the Create New Advert button
         createNewAdvertButton.setOnClickListener(view -> {
-            // Start the CreateAdvertActivity
             Intent intent = new Intent(MainActivity.this, ItemDetailActivity.class);
             startActivity(intent);
         });
 
-        // Set up the listener for the Show All Lost And Found Items button
         showAllLostAndFoundItemsButton.setOnClickListener(view -> {
-            // Start the ShowItemsActivity
             Intent intent = new Intent(MainActivity.this, ShowItemsActivity.class);
+            startActivity(intent);
+        });
+
+        showOnMapButton.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, MapsActivity.class);
             startActivity(intent);
         });
     }
